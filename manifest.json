@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "SL Reflex Game",
-  "version": "1.0",
-  "description": "A fast reflex game with S and L.",
+  "version": "1.1",
+  "description": "A fast reflex game built around S and L patterns.",
   "action": {
     "default_popup": "popup.html"
   }
