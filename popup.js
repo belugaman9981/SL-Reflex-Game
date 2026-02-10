@@ -1,13 +1,18 @@
 let score = 0;
+let level = 1;
 let current = "";
 let alive = false;
+let roundDelay = 700;
 
 const letterDiv = document.getElementById("letter");
 const scoreDiv = document.getElementById("score");
 
 function randomLetters() {
   const letters = ["S", "L"];
-  const count = Math.random() < 0.5 ? 1 : 2;
+  const count =
+    level === 1
+      ? (Math.random() < 0.5 ? 1 : 2)
+      : 2; // Level 2 always doubles
 
   let result = "";
   for (let i = 0; i < count; i++) {
@@ -32,12 +37,22 @@ function nextRound() {
   letterDiv.textContent = current;
 }
 
+function levelUp() {
+  level = 2;
+  roundDelay = 400;
+  letterDiv.textContent = "LEVEL 2";
+  setTimeout(nextRound, 800);
+}
+
 function startGame() {
   score = 0;
+  level = 1;
+  roundDelay = 700;
   alive = true;
-  scoreDiv.textContent = "Score: 0";
+
+  scoreDiv.textContent = "Score: 0 | Level: 1";
   letterDiv.textContent = "GO";
-  setTimeout(nextRound, 400);
+  setTimeout(nextRound, 500);
 }
 
 function gameOver() {
@@ -55,8 +70,15 @@ document.addEventListener("keydown", (e) => {
 
   if (e.key === correctKey()) {
     score++;
-    scoreDiv.textContent = `Score: ${score}`;
-    nextRound();
+
+    if (score === 15 && level === 1) {
+      scoreDiv.textContent = `Score: ${score} | Level: 2`;
+      levelUp();
+      return;
+    }
+
+    scoreDiv.textContent = `Score: ${score} | Level: ${level}`;
+    setTimeout(nextRound, roundDelay);
   } else {
     gameOver();
   }
