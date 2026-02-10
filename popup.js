@@ -4,27 +4,27 @@ let alive = false;
 
 const letterDiv = document.getElementById("letter");
 const scoreDiv = document.getElementById("score");
-const hintDiv = document.getElementById("hint");
 
 function randomLetters() {
-  const choices = ["S", "L"];
+  const letters = ["S", "L"];
   const count = Math.random() < 0.5 ? 1 : 2;
 
-  if (count === 1) {
-    return choices[Math.floor(Math.random() * 2)];
+  let result = "";
+  for (let i = 0; i < count; i++) {
+    result += letters[Math.floor(Math.random() * 2)];
   }
-
-  const first = choices[Math.floor(Math.random() * 2)];
-  const second = choices[Math.floor(Math.random() * 2)];
-  return first + second;
+  return result;
 }
 
 function correctKey() {
-  if (current === "S") return "s";
-  if (current === "L") return "l";
-  if (current === "SS") return "l";
-  if (current === "LL") return "s";
-  if (current === "SL" || current === "LS") return " ";
+  switch (current) {
+    case "S": return "s";
+    case "L": return "l";
+    case "SS": return "l";
+    case "LL": return "s";
+    case "SL":
+    case "LS": return " ";
+  }
 }
 
 function nextRound() {
@@ -36,17 +36,14 @@ function startGame() {
   score = 0;
   alive = true;
   scoreDiv.textContent = "Score: 0";
-  hintDiv.textContent = "";
-  nextRound();
-}
- 
-function gameOver() {
-  alive = false;
-  letterDiv.textContent = "oof";
-  scoreDiv.textContent = `Score: ${score}`;
-  hintDiv.textContent = "try again (press space)";
+  letterDiv.textContent = "GO";
+  setTimeout(nextRound, 400);
 }
 
+function gameOver() {
+  alive = false;
+  letterDiv.textContent = "💀";
+}
 
 document.addEventListener("keydown", (e) => {
   if (!alive) {
