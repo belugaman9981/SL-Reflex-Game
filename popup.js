@@ -52,7 +52,7 @@ function nextRound() {
 function levelUp() {
   level = 2;
   letterDiv.textContent = "⚠️ LEVEL 2 ⚠️";
-  scoreDiv.textContent = "Warning: visuals may lie";
+  scoreDiv.textContent = "Warning: visuals may lie wink wink";
   setTimeout(() => {
     scoreDiv.textContent = `Score: ${score} | Level: 2`;
     nextRound();
