@@ -1,5 +1,5 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 2.1a,
   "name": "SL Reflex Game",
   "version": "1.1",
   "description": "A fast reflex game built around S and L patterns.",
