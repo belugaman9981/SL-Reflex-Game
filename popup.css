@@ -12,6 +12,7 @@ body {
   justify-content: center;
   gap: 16px;
 
+  
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background: linear-gradient(145deg, #111827, #1f2933);
   color: #e5e7eb;
