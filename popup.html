@@ -1,28 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SL Reaction Game</title>
   <link rel="stylesheet" href="popup.css">
 </head>
 <body>
 
-  <div id="letter">SL</div>
-  <div id="score">Score: 0</div>
+  <div class="game-container">
 
-  <div class="hint">
-    L → press L<br>
-    S → press S<br>
-    LL / SS → press opposite<br>
-    SL / LS → press SPACE<br>
-    Good Luck! 🍀
-  </div>
+    <header>
+      <h1 class="game-title">SL Challenge</h1>
+      <div id="score" class="score">Score: 0</div>
+    </header>
 
-  <div class="hint">
-    Press SPACE to start!
-  </div>
+    <main>
+      <div id="letter" class="letter-display">SL</div>
 
-  <div id="secret">
-    Reach 15 to unlock the next level 👀
+      <div class="instructions">
+        <h2>How to Play</h2>
+        <ul>
+          <li><strong>L</strong> → Press <kbd>L</kbd></li>
+          <li><strong>S</strong> → Press <kbd>S</kbd></li>
+          <li><strong>LL</strong> / <strong>SS</strong> → Press the opposite key</li>
+          <li><strong>SL</strong> / <strong>LS</strong> → Press <kbd>SPACE</kbd></li>
+        </ul>
+      </div>
+
+      <div class="start-message">
+        Press <kbd>SPACE</kbd> to start 🚀
+      </div>
+
+      <div id="secret" class="secret">
+        🔒 Reach 15 points to unlock the next level
+      </div>
+    </main>
+
   </div>
 
   <script src="popup.js"></script>
