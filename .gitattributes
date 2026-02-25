@@ -1,2 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+git add .gitignore
+git commit -m "Add .gitignore file"
