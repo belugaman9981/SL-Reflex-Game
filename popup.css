@@ -107,3 +107,21 @@ button:focus-visible {
   outline: 3px solid #93c5fd;
   outline-offset: 4px;
 }
+
+.mode-select {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 12px 0;
+  font-size: 18px;
+}
+
+.mode-select label {
+  cursor: pointer;
+  opacity: 0.85;
+}
+
+.mode-select input {
+  margin-right: 6px;
+  accent-color: #3b82f6;
+}
