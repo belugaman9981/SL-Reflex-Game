@@ -1,13 +1,41 @@
-
 let score = 0;
 let level = 1;
 let current = "";
 let realCurrent = "";
 let alive = false;
 
+/* ⏱️ TIMER */
+let timeLeft = 30;
+let timerInterval = null;
+
 const letterDiv = document.getElementById("letter");
 const scoreDiv = document.getElementById("score");
 
+function updateScoreBar() {
+  scoreDiv.textContent = `Score: ${score} | Level: ${level} | Time: ${timeLeft}`;
+}
+
+function startTimer() {
+  clearInterval(timerInterval);
+  timeLeft = 30;
+  updateScoreBar();
+
+  timerInterval = setInterval(() => {
+    timeLeft--;
+    updateScoreBar();
+
+    if (timeLeft <= 0) {
+      timeLeft = 0;
+      gameOver(true);
+    }
+  }, 1000);
+}
+
+function stopTimer() {
+  clearInterval(timerInterval);
+}
+
+/* 🎲 GAME LOGIC */
 function randomLetters() {
   const letters = ["S", "L"];
   const count = level === 1 ? (Math.random() < 0.5 ? 1 : 2) : 2;
@@ -22,7 +50,6 @@ function randomLetters() {
 function maybeFake(real) {
   if (level < 2) return real;
 
-  // 30% chance to fake
   if (Math.random() < 0.3) {
     let fake;
     do {
@@ -53,9 +80,10 @@ function nextRound() {
 function levelUp() {
   level = 2;
   letterDiv.textContent = "⚠️ LEVEL 2 ⚠️";
-  scoreDiv.textContent = "Warning: visuals may lie wink wink";
+  scoreDiv.textContent = "Warning: visuals may lie 👁️";
+
   setTimeout(() => {
-    scoreDiv.textContent = `Score: ${score} | Level: 2`;
+    updateScoreBar();
     nextRound();
   }, 1200);
 }
@@ -64,16 +92,24 @@ function startGame() {
   score = 0;
   level = 1;
   alive = true;
-  scoreDiv.textContent = "Score: 0 | Level: 1";
+
   letterDiv.textContent = "GO";
+  startTimer();
+
   setTimeout(nextRound, 500);
 }
 
-function gameOver() {
+function gameOver(timeUp = false) {
   alive = false;
-  letterDiv.textContent = "💀";
+  stopTimer();
+
+  letterDiv.textContent = timeUp ? "⏱️" : "💀";
+  scoreDiv.textContent = timeUp
+    ? `Time’s up! Final score: ${score}`
+    : `Game Over! Final score: ${score}`;
 }
 
+/* ⌨️ INPUT */
 document.addEventListener("keydown", (e) => {
   if (!alive) {
     if (e.key === " ") startGame();
@@ -90,10 +126,9 @@ document.addEventListener("keydown", (e) => {
       return;
     }
 
-    scoreDiv.textContent = `Score: ${score} | Level: ${level}`;
+    updateScoreBar();
     nextRound();
   } else {
     gameOver();
   }
 });
-
