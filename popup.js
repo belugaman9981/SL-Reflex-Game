@@ -88,6 +88,7 @@ function levelUp() {
   }, 1200);
 }
 
+
 function startGame() {
   score = 0;
   level = 1;
