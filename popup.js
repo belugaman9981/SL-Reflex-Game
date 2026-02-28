@@ -105,7 +105,7 @@ function gameOver(timeUp = false) {
 
   letterDiv.textContent = timeUp ? "⏱️" : "💀";
   scoreDiv.textContent = timeUp
-    ? `Time’s up! Final score: ${score}`
+    ? `Time's up! Final score: ${score}`
     : `Game Over! Final score: ${score}`;
 }
 
