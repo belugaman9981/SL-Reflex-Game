@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SL Reaction Game</title>
-  <link rel="stylesheet" href="popup.css">
+  <link rel="stylesheet" href="popup.css" />
 </head>
 <body>
 
@@ -38,10 +37,20 @@
       </div>
     </main>
 
+    <!-- 🌍 WORLD SCOREBOARD -->
+    <section class="leaderboard">
+      <h2>🌍 World Scoreboard</h2>
+
+      <div class="name-entry">
+        <input id="playerName" type="text" maxlength="12" placeholder="Your name" />
+        <button id="submitScore">Submit</button>
+      </div>
+
+      <ol id="scores"></ol>
+    </section>
+
   </div>
 
   <script src="popup.js"></script>
 </body>
 </html>
-
-
