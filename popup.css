@@ -1,4 +1,3 @@
-
 body {
   width: 480px;
   height: 520px;
@@ -11,57 +10,100 @@ body {
   align-items: center;
   justify-content: center;
   gap: 16px;
-  
+
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: linear-gradient(145deg, #111827, #1f2933);
+  background:
+    radial-gradient(120% 120% at 20% 0%, #1e293b 0%, transparent 40%),
+    linear-gradient(145deg, #0b1220, #1f2933);
   color: #e5e7eb;
+
   user-select: none;
 }
 
+/* Main letter tile */
 #letter {
   font-size: 84px;
-  font-weight: 700;
-  letter-spacing: 8px;
-  padding: 20px 36px;
-  border-radius: 20px;
-  background: #0f172a;
-  box-shadow: inset 0 0 0 4px #334155;
+  font-weight: 800;
+  letter-spacing: 10px;
+  padding: 22px 40px;
+  border-radius: 22px;
+
+  background: linear-gradient(180deg, #0f172a, #020617);
+  box-shadow:
+    inset 0 0 0 3px #334155,
+    0 18px 40px rgba(0, 0, 0, 0.6);
+
+  transform: translateY(0);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
+#letter.active {
+  transform: translateY(2px);
+  box-shadow:
+    inset 0 0 0 3px #475569,
+    0 10px 24px rgba(0, 0, 0, 0.5);
+}
+
+/* Score */
 #score {
   font-size: 32px;
+  font-weight: 600;
   opacity: 0.9;
 }
 
+/* Instruction text */
 .hint {
   font-size: 24px;
   text-align: center;
-  line-height: 1.4;
+  line-height: 1.45;
   opacity: 0.75;
 }
 
+/* Secret / feedback */
 #secret {
   margin-top: 12px;
   font-size: 20px;
   color: #22c55e;
-  font-weight: 600;
-  opacity: 0.85;
+  font-weight: 700;
+  opacity: 0.9;
+  text-shadow: 0 0 12px rgba(34, 197, 94, 0.25);
 }
 
+/* Button */
 button {
   margin-top: 24px;
-  padding: 16px 32px;
+  padding: 16px 36px;
   font-size: 28px;
-  font-weight: 600;
+  font-weight: 700;
   color: #e5e7eb;
-  background-color: #2563eb;
+
+  background: linear-gradient(180deg, #3b82f6, #1d4ed8);
   border: none;
-  border-radius: 12px;
+  border-radius: 14px;
+
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    background 0.2s ease;
+
+  box-shadow:
+    0 12px 28px rgba(37, 99, 235, 0.45);
 }
 
 button:hover {
-  background-color: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow:
+    0 16px 36px rgba(37, 99, 235, 0.55);
 }
 
+button:active {
+  transform: translateY(2px);
+  box-shadow:
+    0 8px 18px rgba(37, 99, 235, 0.4);
+}
+
+button:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 4px;
+}
