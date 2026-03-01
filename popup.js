@@ -133,3 +133,5 @@ document.addEventListener("keydown", (e) => {
     gameOver();
   }
 });
+
+
