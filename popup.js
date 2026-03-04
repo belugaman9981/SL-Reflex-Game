@@ -9,6 +9,7 @@ let alive = false;
 let timeLeft = 30;
 let timerInterval = null;
 
+
 const letterDiv = document.getElementById("letter");
 const scoreDiv = document.getElementById("score");
 
