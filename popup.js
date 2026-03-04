@@ -67,7 +67,7 @@ function correctKey(seq) {
     case "L": return "l";
     case "SS": return "l";
     case "LL": return "s";
-    case "SL":
+    case "SL": return " ";
     case "LS": return " ";
   }
 }
