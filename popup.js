@@ -1,4 +1,3 @@
-
 let score = 0;
 let level = 1;
 let current = "";
@@ -9,12 +8,17 @@ let alive = false;
 let timeLeft = 30;
 let timerInterval = null;
 
+/* 🔁 LETTER CHANGE TIMER */
+let changeInterval = null;
+
 const letterDiv = document.getElementById("letter");
 const scoreDiv = document.getElementById("score");
 
 function updateScoreBar() {
   scoreDiv.textContent = `Score: ${score} | Level: ${level} | Time: ${timeLeft}`;
 }
+
+/* ⏱️ MAIN GAME TIMER */
 
 function startTimer() {
   clearInterval(timerInterval);
@@ -36,10 +40,39 @@ function stopTimer() {
   clearInterval(timerInterval);
 }
 
-/* 🎲 GAME LOGIC */
+/* 🎚️ LEVEL SPEED */
+
+function levelSpeed() {
+  switch (level) {
+    case 1: return 5000;
+    case 2: return 4000;
+    case 3: return 3000;
+    case 4: return 2000;
+    case 5: return 1000;
+  }
+}
+
+/* 🔁 START LETTER CHANGER */
+
+function startLetterChanger() {
+  clearInterval(changeInterval);
+
+  changeInterval = setInterval(() => {
+    if (alive) {
+      nextRound();
+    }
+  }, levelSpeed());
+}
+
+function stopLetterChanger() {
+  clearInterval(changeInterval);
+}
+
+/* 🎲 LETTER GENERATION */
+
 function randomLetters() {
   const letters = ["S", "L"];
-  const count = level === 1 ? (Math.random() < 0.5 ? 1 : 2) : 2;
+  const count = Math.random() < 0.5 ? 1 : 2;
 
   let result = "";
   for (let i = 0; i < count; i++) {
@@ -48,18 +81,7 @@ function randomLetters() {
   return result;
 }
 
-function maybeFake(real) {
-  if (level < 2) return real;
-
-  if (Math.random() < 0.3) {
-    let fake;
-    do {
-      fake = randomLetters();
-    } while (fake === real);
-    return fake;
-  }
-  return real;
-}
+/* 🎯 CORRECT KEY */
 
 function correctKey(seq) {
   switch (seq) {
@@ -72,23 +94,15 @@ function correctKey(seq) {
   }
 }
 
+/* 🔄 NEXT ROUND */
+
 function nextRound() {
   realCurrent = randomLetters();
-  current = maybeFake(realCurrent);
+  current = realCurrent;
   letterDiv.textContent = current;
 }
 
-function levelUp() {
-  level = 2;
-  letterDiv.textContent = "⚠️ ! LEVEL 2 ! ⚠️";
-  scoreDiv.textContent = "Warning: visuals may lie 😉";
-
-  setTimeout(() => {
-    updateScoreBar();
-    nextRound();
-  }, 1200);
-}
-
+/* 🚀 START GAME */
 
 function startGame() {
   score = 0;
@@ -96,14 +110,20 @@ function startGame() {
   alive = true;
 
   letterDiv.textContent = "GO";
+
   startTimer();
+  startLetterChanger();
 
   setTimeout(nextRound, 500);
 }
 
+/* 💀 GAME OVER */
+
 function gameOver(timeUp = false) {
   alive = false;
+
   stopTimer();
+  stopLetterChanger();
 
   letterDiv.textContent = timeUp ? "Time's up!" : "💀";
   scoreDiv.textContent = timeUp
@@ -112,7 +132,9 @@ function gameOver(timeUp = false) {
 }
 
 /* ⌨️ INPUT */
+
 document.addEventListener("keydown", (e) => {
+
   if (!alive) {
     if (e.key === " ") startGame();
     return;
@@ -121,17 +143,22 @@ document.addEventListener("keydown", (e) => {
   if (!["s", "l", " "].includes(e.key)) return;
 
   if (e.key === correctKey(realCurrent)) {
+
     score++;
 
-    if (score === 15 && level === 1) {
-      levelUp();
-      return;
-    }
+    /* LEVEL PROGRESSION */
+
+    if (score === 10) level = 2;
+    if (score === 20) level = 3;
+    if (score === 30) level = 4;
+    if (score === 40) level = 5;
+
+    startLetterChanger();
 
     updateScoreBar();
     nextRound();
+
   } else {
     gameOver();
   }
 });
-
