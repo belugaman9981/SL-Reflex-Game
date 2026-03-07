@@ -146,14 +146,26 @@ document.addEventListener("keydown", (e) => {
 
     score++;
 
-    /* LEVEL PROGRESSION */
+    let leveledUp = false;
 
-    if (score === 10) level = 2;
-    if (score === 20) level = 3;
-    if (score === 30) level = 4;
-    if (score === 40) level = 5;
+    if (score === 10) { level = 2; leveledUp = true; }
+    if (score === 20) { level = 3; leveledUp = true; }
+    if (score === 30) { level = 4; leveledUp = true; }
+    if (score === 40) { level = 5; leveledUp = true; }
 
-    startLetterChanger();
+    if (leveledUp) {
+
+      letterDiv.textContent = `LEVEL ${level}!`;
+      updateScoreBar();
+
+      setTimeout(() => {
+        startTimer();
+        startLetterChanger();
+        nextRound();
+      }, 800);
+
+      return;
+    }
 
     updateScoreBar();
     nextRound();
