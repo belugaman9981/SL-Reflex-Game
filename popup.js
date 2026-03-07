@@ -8,8 +8,8 @@ let alive = false;
 let timeLeft = 30;
 let timerInterval = null;
 
-/* 🔁 LETTER CHANGE TIMER */
-let changeInterval = null;
+/* ⏳ IDLE CHANGE TIMER */
+let changeTimeout = null;
 
 const letterDiv = document.getElementById("letter");
 const scoreDiv = document.getElementById("score");
@@ -52,20 +52,21 @@ function levelSpeed() {
   }
 }
 
-/* 🔁 START LETTER CHANGER */
+/* ⏳ IDLE LETTER CHANGE */
 
-function startLetterChanger() {
-  clearInterval(changeInterval);
+function startIdleTimer() {
+  clearTimeout(changeTimeout);
 
-  changeInterval = setInterval(() => {
+  changeTimeout = setTimeout(() => {
     if (alive) {
       nextRound();
+      startIdleTimer();
     }
   }, levelSpeed());
 }
 
-function stopLetterChanger() {
-  clearInterval(changeInterval);
+function stopIdleTimer() {
+  clearTimeout(changeTimeout);
 }
 
 /* 🎲 LETTER GENERATION */
@@ -112,9 +113,11 @@ function startGame() {
   letterDiv.textContent = "GO";
 
   startTimer();
-  startLetterChanger();
 
-  setTimeout(nextRound, 500);
+  setTimeout(() => {
+    nextRound();
+    startIdleTimer();
+  }, 500);
 }
 
 /* 💀 GAME OVER */
@@ -123,7 +126,7 @@ function gameOver(timeUp = false) {
   alive = false;
 
   stopTimer();
-  stopLetterChanger();
+  stopIdleTimer();
 
   letterDiv.textContent = timeUp ? "Time's up!" : "💀";
   scoreDiv.textContent = timeUp
@@ -160,8 +163,8 @@ document.addEventListener("keydown", (e) => {
 
       setTimeout(() => {
         startTimer();
-        startLetterChanger();
         nextRound();
+        startIdleTimer();
       }, 800);
 
       return;
@@ -169,6 +172,7 @@ document.addEventListener("keydown", (e) => {
 
     updateScoreBar();
     nextRound();
+    startIdleTimer();
 
   } else {
     gameOver();
