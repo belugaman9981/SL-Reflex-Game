@@ -1,5 +1,5 @@
 
-body {
+ody {
   width: 480px;
   height: 520px;
   margin: 0;
@@ -19,6 +19,35 @@ body {
   color: #e5e7eb;
 
   user-select: none;
+
+  /* 🌸 PINK NEON FRAME */
+  border: 3px solid #ff2fd1;
+  border-radius: 18px;
+  box-shadow:
+    0 0 10px #ff2fd1,
+    0 0 20px #ff2fd1,
+    0 0 40px #ff2fd1,
+    inset 0 0 12px rgba(255, 47, 209, 0.5);
+
+  animation: neonPulse 2.5s infinite alternate;
+}
+
+/* ✨ subtle neon pulse */
+@keyframes neonPulse {
+  from {
+    box-shadow:
+      0 0 8px #ff2fd1,
+      0 0 16px #ff2fd1,
+      0 0 32px #ff2fd1,
+      inset 0 0 10px rgba(255, 47, 209, 0.4);
+  }
+  to {
+    box-shadow:
+      0 0 14px #ff6ee7,
+      0 0 28px #ff2fd1,
+      0 0 60px #ff2fd1,
+      inset 0 0 14px rgba(255, 47, 209, 0.6);
+  }
 }
 
 /* CENTER GAME AREA */
