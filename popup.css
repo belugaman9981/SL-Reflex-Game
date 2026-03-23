@@ -38,7 +38,7 @@ body {
     box-shadow:
       0 0 8px #ff2fd1,
       0 0 16px #ff2fd1,
-      0 0 32px #ff2fd1,
+      0 0 32px #010001,
       inset 0 0 10px rgba(255, 47, 209, 0.4);
   }
   to {
