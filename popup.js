@@ -6,6 +6,7 @@ let realCurrent = "";
 let alive       = false;
 
 /* ⏱️ TIMER */
+
 let timeLeft      = 30;
 let timerInterval = null;
 
