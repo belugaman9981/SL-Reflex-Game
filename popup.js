@@ -99,8 +99,8 @@ function correctKey(seq) {
 /* 🔄 NEXT ROUND */
 
 function nextRound() {
-  realCurrent = randomLetters();
-  current = realCurrent;
+  realCurrent           = randomLetters();
+  current               = realCurrent;
   letterDiv.textContent = current;
 }
 
