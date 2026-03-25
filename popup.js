@@ -1,9 +1,9 @@
 
-let score = 0;
-let level = 1;
-let current = "";
+let score       = 0;
+let level       = 1;
+let current     = "";
 let realCurrent = "";
-let alive = false;
+let alive       = false;
 
 /* ⏱️ TIMER */
 let timeLeft = 30;
