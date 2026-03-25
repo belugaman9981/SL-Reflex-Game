@@ -35,7 +35,6 @@ function startTimer() {
       gameOver(true);
     }
   }, 1000);
-  
 }
 
 function stopTimer() {
