@@ -1,9 +1,9 @@
 
-let score       = 0;
-let level       = 1;
-let current     = "";
-let realCurrent = "";
-let alive       = false;
+let score         = 0;
+let level         = 1;
+let current       = "";
+let realCurrent   = "";
+let alive         = false;
 
 /* ⏱️ TIMER */
 
@@ -14,8 +14,8 @@ let timerInterval = null;
 
 let changeTimeout = null;
 
-const letterDiv = document.getElementById("letter");
-const scoreDiv  = document.getElementById("score");
+const letterDiv   = document.getElementById("letter");
+const scoreDiv    = document.getElementById("score");
 
 function updateScoreBar() {
   scoreDiv.textContent = `Score: ${score} | Level: ${level} | Time: ${timeLeft}`;
