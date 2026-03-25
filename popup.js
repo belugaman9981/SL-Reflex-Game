@@ -169,7 +169,7 @@ document.addEventListener("keydown", (e) => {
         startTimer();
         nextRound();
         startIdleTimer();
-      }, 800);
+      }, 500);
 
       return;
     }
