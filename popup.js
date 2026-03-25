@@ -13,7 +13,7 @@ let timerInterval = null;
 let changeTimeout = null;
 
 const letterDiv = document.getElementById("letter");
-const scoreDiv = document.getElementById("score");
+const scoreDiv  = document.getElementById("score");
 
 function updateScoreBar() {
   scoreDiv.textContent = `Score: ${score} | Level: ${level} | Time: ${timeLeft}`;
