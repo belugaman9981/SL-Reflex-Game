@@ -131,7 +131,7 @@ function gameOver(timeUp = false) {
   stopTimer();
   stopIdleTimer();
 
-  letterDiv.textContent = timeUp ? "Time's up!" : "💀";
+  letterDiv.textContent = timeUp ? "Time's up!" : "Good try";
   scoreDiv.textContent  = timeUp
     ? `Time's up! Final score: ${score}`
     : `Game Over! Final score: ${score}`;
