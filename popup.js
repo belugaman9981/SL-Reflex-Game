@@ -87,8 +87,8 @@ function randomLetters() {
 
 function correctKey(seq) {
   switch (seq) {
-    case "S": return "s";
-    case "L": return "l";
+    case "S":  return "s";
+    case "L":  return "l";
     case "SS": return "l";
     case "LL": return "s";
     case "SL": return " ";
