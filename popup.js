@@ -11,6 +11,7 @@ let timeLeft      = 30;
 let timerInterval = null;
 
 /* ⏳ IDLE CHANGE TIMER */
+
 let changeTimeout = null;
 
 const letterDiv = document.getElementById("letter");
