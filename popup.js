@@ -179,5 +179,6 @@ document.addEventListener("keydown", (e) => {
   } else {
     gameOver();
   }
+  
 });
 
