@@ -74,7 +74,7 @@ function stopIdleTimer() {
 
 function randomLetters() {
   const letters = ["S", "L"];
-  const count = Math.random() < 0.5 ? 1 : 2;
+  const count   = Math.random() < 0.5 ? 1 : 2;
 
   let result = "";
   for (let i = 0; i < count; i++) {
