@@ -158,7 +158,7 @@ document.addEventListener("keydown", (e) => {
     if (score === 20) { level = 3; leveledUp = true; }
     if (score === 30) { level = 4; leveledUp = true; }
     if (score === 40) { level = 5; leveledUp = true; }
-    if (score === 50) { alert("YOU WIN, CONGRATS!"); }
+    if (score === 50) { alert("YOU WIN, CONGRATS!"); } 
 
     if (leveledUp) {
 
