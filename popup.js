@@ -174,8 +174,8 @@ document.addEventListener("keydown", (e) => {
       return;
     }
 
-    updateScoreBar();
     nextRound();
+    updateScoreBar();
     startIdleTimer();
 
   } else {
