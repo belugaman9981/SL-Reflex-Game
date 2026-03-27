@@ -86,11 +86,11 @@ main {
 
 /* Button */
 button {
-  margin-top: 24px;
-  padding: 16px 36px;
-  font-size: 28px;
+  margin-top:  24px;
+  padding:     16px 36px;
+  font-size:   28px;
   font-weight: 700;
-  color: #e5e7eb;
+  color:       #e5e7eb;
 
   background: linear-gradient(180deg, #3b82f6, #1d4ed8);
   border: none;
