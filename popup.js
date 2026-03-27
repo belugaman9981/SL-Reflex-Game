@@ -150,7 +150,7 @@ document.addEventListener("keydown", (e) => {
 
   if (e.key === correctKey(realCurrent)) {
 
-    score++;
+    score++ ;
 
     let leveledUp = false;
 
@@ -166,8 +166,8 @@ document.addEventListener("keydown", (e) => {
       updateScoreBar();
 
       setTimeout(() => {
-        startTimer();
-        nextRound();
+        startTimer    ();
+        nextRound     ();
         startIdleTimer();
       }, 500);
 
