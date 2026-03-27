@@ -62,17 +62,17 @@ main {
 
 /* Score */
 #score {
-  font-size: 32px;
+  font-size:   32px;
   font-weight: 600;
-  opacity: 0.9;
+  opacity:     0.9;
 }
 
 /* Instruction text */
 .hint {
-  font-size: 24px;
-  text-align: center;
+  font-size:   24px;
+  text-align:  center;
   line-height: 1.45;
-  opacity: 0.75;
+  opacity:     0.75;
 }
 
 /* Secret / feedback */
