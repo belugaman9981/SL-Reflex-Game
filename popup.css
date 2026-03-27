@@ -38,11 +38,11 @@ main {
 
 /* Main letter tile */
 #letter {
-  font-size: 84px;
-  font-weight: 800;
+  font-size:      84px;
+  font-weight:    800;
   letter-spacing: 10px;
-  padding: 22px 40px;
-  border-radius: 22px;
+  padding:        22px 40px;
+  border-radius:  22px;
 
   background: linear-gradient(180deg, #0f172a, #020617);
   box-shadow:
