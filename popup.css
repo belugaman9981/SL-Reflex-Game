@@ -98,7 +98,7 @@ button {
 
   cursor: pointer;
   transition:
-    transform 0.12s ease,
+    transform  0.12s ease,
     box-shadow 0.12s ease,
     background 0.2s ease;
 
