@@ -77,11 +77,11 @@ main {
 
 /* Secret / feedback */
 #secret {
-  margin-top: 12px;
-  font-size: 14px;
-  color: #81D8D0;
+  margin-top:  12px;
+  font-size:   14px;
+  color:       #81D8D0;
   font-weight: 700;
-  opacity: 0.9;
+  opacity:     0.9;
 }
 
 /* Button */
