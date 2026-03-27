@@ -124,15 +124,15 @@ button:focus-visible {
 }
 
 .mode-select {
-  display: flex;
+  display:         flex;
   justify-content: center;
-  gap: 20px;
-  margin: 12px 0;
-  font-size: 18px;
+  gap:             20px;
+  margin:          12px 0;
+  font-size:       18px;
 }
 
 .mode-select label {
-  cursor: pointer;
+  cursor:  pointer;
   opacity: 0.85;
 }
 
